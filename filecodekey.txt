@@ -1,5 +1,5 @@
 -- 1️⃣ KHAI BÁO KEY & FILE LƯU TRỮ
-local key = "bucu" 
+local key = "z" 
 local keyLink = "https://www.tiktok.com/@b.yt03"
 local fileName = "SavedKey_MyScript.txt" -- Tên file sẽ lưu trong thư mục workspace
 
