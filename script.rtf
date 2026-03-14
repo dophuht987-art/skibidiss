@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 -- [[ Giao Di\uc0\u7879 n Nh\u7853 p Key Ghostz - Cute & Blue ]] --\
+\
+local TweenService = game:GetService("TweenService")\
+local CoreGui = game:GetService("CoreGui")\
+local HttpService = game:GetService("HttpService")\
+\
+-- 1. T\uc0\u7841 o ScreenGui\
+if CoreGui:FindFirstChild("GhostzKeySystem") then CoreGui["GhostzKeySystem"]:Destroy() end\
+local ScreenGui = Instance.new("ScreenGui", CoreGui)\
+ScreenGui.Name = "GhostzKeySystem"\
+\
+-- 2. Khung ch\'ednh (Main Frame)\
+local Main = Instance.new("Frame", ScreenGui)\
+Main.Name = "Main"\
+Main.Size = UDim2.new(0, 320, 0, 190)\
+Main.Position = UDim2.new(0.5, -160, 0.4, -95) -- Hi\uc0\u7879 n \u7903  gi\u7919 a m\'e0n h\'ecnh\
+Main.BackgroundColor3 = Color3.fromRGB(15, 15, 25)\
+Main.BorderSizePixel = 0\
+Main.ClipsDescendants = true\
+\
+-- Bo g\'f3c cho khung ch\'ednh\
+local Corner = Instance.new("UICorner", Main)\
+Corner.CornerRadius = UDim.new(0, 15)\
+\
+-- Vi\uc0\u7873 n xanh d\u432 \u417 ng ph\'e1t s\'e1ng\
+local Stroke = Instance.new("UIStroke", Main)\
+Stroke.Thickness = 2\
+Stroke.Color = Color3.fromRGB(0, 120, 255)\
+\
+-- 3. Ti\'eau \uc0\u273 \u7873  (Title)\
+local Title = Instance.new("TextLabel", Main)\
+Title.Size = UDim2.new(1, 0, 0, 45)\
+Title.Text = "\uc0\u11088  GHOSTZ - KEY SYSTEM \u11088 "\
+Title.TextColor3 = Color3.fromRGB(0, 180, 255)\
+Title.Font = Enum.Font.GothamBold\
+Title.TextSize = 18\
+Title.BackgroundTransparency = 1\
+\
+-- 4. \'d4 nh\uc0\u7853 p Key (TextBox)\
+local Input = Instance.new("TextBox", Main)\
+Input.PlaceholderText = "Nh\uc0\u7853 p Key v\'e0o \u273 \'e2y n\'e8 b\u7841 n \u417 i..."\
+Input.Size = UDim2.new(0, 260, 0, 45)\
+Input.Position = UDim2.new(0.5, -130, 0.45, -10)\
+Input.BackgroundColor3 = Color3.fromRGB(30, 30, 45)\
+Input.TextColor3 = Color3.fromRGB(255, 255, 255)\
+Input.Font = Enum.Font.Gotham\
+Input.Text = ""\
+Input.TextSize = 14\
+local InputCorner = Instance.new("UICorner", Input)\
+InputCorner.CornerRadius = UDim.new(0, 10)\
+\
+-- 5. N\'fat b\uc0\u7845 m (Button)\
+local Submit = Instance.new("TextButton", Main)\
+Submit.Name = "Submit"\
+Submit.Text = "X\'c1C NH\uc0\u7852 N \u55357 \u56473 "\
+Submit.Size = UDim2.new(0, 140, 0, 35)\
+Submit.Position = UDim2.new(0.5, -70, 0.8, -5)\
+Submit.BackgroundColor3 = Color3.fromRGB(0, 100, 255)\
+Submit.TextColor3 = Color3.fromRGB(255, 255, 255)\
+Submit.Font = Enum.Font.GothamBold\
+Submit.TextSize = 14\
+local BtnCorner = Instance.new("UICorner", Submit)\
+BtnCorner.CornerRadius = UDim.new(0, 10)\
+\
+-- [[ HI\uc0\u7878 U \u7912 NG V\'c0 LOGIC ]] --\
+\
+-- Hi\uc0\u7879 u \u7913 ng khi di chu\u7897 t v\'e0o n\'fat\
+Submit.MouseEnter:Connect(function()\
+    TweenService:Create(Submit, TweenInfo.new(0.3), \{BackgroundColor3 = Color3.fromRGB(0, 150, 255)\}):Play()\
+end)\
+Submit.MouseLeave:Connect(function()\
+    TweenService:Create(Submit, TweenInfo.new(0.3), \{BackgroundColor3 = Color3.fromRGB(0, 100, 255)\}):Play()\
+end)\
+\
+-- X\uc0\u7917  l\'fd khi nh\u7845 n n\'fat X\'e1c Nh\u7853 n\
+Submit.MouseButton1Click:Connect(function()\
+    local Key = "Ghostz_123" -- Key m\uc0\u7851 u c\u7911 a m\'ecnh\
+    \
+    if Input.Text == Key then\
+        -- N\uc0\u7871 u \u273 \'fang Key\
+        Submit.Text = "\uc0\u272 ang ki\u7875 m tra... \u9989 "\
+        wait(1)\
+        Title.Text = "NH\uc0\u7852 P KEY TH\'c0NH C\'d4NG!"\
+        \
+        -- Hi\uc0\u7879 u \u7913 ng bi\u7871 n m\u7845 t cute\
+        TweenService:Create(Main, TweenInfo.new(0.5), \{Size = UDim2.new(0, 0, 0, 0), BackgroundTransparency = 1\}):Play()\
+        wait(0.5)\
+        ScreenGui:Destroy()\
+        \
+        -- \uc0\u7902  \u272 \'c2Y S\u7868  CH\u7840 Y SCRIPT KAITUN C\u7910 A B\u7840 N\
+        print("\uc0\u272 ang b\u7853 t Script Kaitun Ghostz...")\
+    else\
+        -- N\uc0\u7871 u sai Key: Rung khung nh\u7853 p\
+        Input.Text = ""\
+        Input.PlaceholderText = "Sai Key r\uc0\u7891 i! Th\u7917  l\u7841 i nha \u10060 "\
+        local OriginPos = Input.Position\
+        for i = 1, 6 do\
+            Input.Position = OriginPos + UDim2.new(0, (i % 2 == 0 and 5 or -5), 0, 0)\
+            wait(0.05)\
+        end\
+        Input.Position = OriginPos\
+    end\
+end)}
